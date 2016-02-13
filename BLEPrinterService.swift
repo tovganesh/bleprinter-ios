@@ -135,10 +135,10 @@ class BLEPrinterService : BKPeripheralDelegate, BKCentralDelegate, BKAvailabilit
             return
         }
         
-        let tabFeed = self.hexToNSData("0A")
+        let lineFeed = self.hexToNSData("0A")
         let printer  = self.connectedDevice!.getPeripheral()!
         
-        printer.writeValue(tabFeed, forCharacteristic: self.connectedDevice!.getCharacteristic()!, type: CBCharacteristicWriteType.WithResponse)
+        printer.writeValue(lineFeed, forCharacteristic: self.connectedDevice!.getCharacteristic()!, type: CBCharacteristicWriteType.WithResponse)
     }
     
     // actual scan function
